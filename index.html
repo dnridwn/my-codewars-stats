@@ -35,9 +35,10 @@
         <div class="card mt-3">
             <div class="card-body">
                 <h5 class="text mb-4">Progress</h5>
-                <p class="m-0 p-0 text text-secondary">Total Completed Kata: <span class="text">{{ totalCompleted }}</span></p>
+                <p class="m-0 p-0 text-secondary">Rank: <span class="text">{{ rank }}</span></p>
                 <p class="m-0 p-0 text-secondary">Honor: <span class="text">{{ honor }}</span></p>
-                <p class="m-0 p-0 text-secondary">Leaderboard Position: <span class="text">{{ leaderboardPosition }}</span></p>
+                <p class="m-0 p-0 text-secondary">Leaderboard Position: <span class="text">#{{ leaderboardPosition }}</span></p>
+                <p class="m-0 p-0 text text-secondary">Total Completed Kata: <span class="text">{{ totalCompleted }}</span></p>
 
                 <div class="row language-info-container mt-3">
                     <div v-for="(languageRank, language) in languageRanks" class="col-sm-12 col-md-6 d-flex align-items-center my-4 language-info">
@@ -57,9 +58,10 @@
 
                 <div class="completed-kata-info my-5" v-for="kata in completedKatas">
                     <a :href="'https://www.codewars.com/kata/' + kata.id" class="text kata-link">{{ kata.name }}</a>
-                    <p class="m-0 p-0 text text-secondary">Completed Languages:
+                    <p class="m-0 p-0 text text-secondary">Completed at: <span class="text">{{ kata.completedAtFormatted }}</span></p>
+                    <p class="m-0 p-0 text text-secondary">Completed languages:
                     <span v-for="language in kata.completedLanguages">
-                        <img v-for :src="'./assets/icons/' + language + '.png'" class="me-2" style="width: 14px;" alt="">
+                        <img v-for :src="'./assets/icons/' + language + '.png'" style="width: 14px;" alt="">
                     </span>
                 </div>
             </div>
