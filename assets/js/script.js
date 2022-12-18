@@ -29,8 +29,6 @@ createApp({
                     this.honor = responseData.honor.toLocaleString('en-US')
                     this.leaderboardPosition = responseData.leaderboardPosition.toLocaleString('en-US')
                     this.languageRanks = toRaw(responseData.ranks.languages)
-
-                    console.log(responseData)
                 })
                 .catch(error => {
                     console.error(error)
@@ -41,8 +39,6 @@ createApp({
                 .then(response => {
                     const responseData = response.data;
                     this.completedKatas = responseData.data.splice(0, 5);
-
-                    console.log(responseData)
                 })
                 .catch(error => {
                     console.error(error)
