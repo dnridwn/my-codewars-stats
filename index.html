@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Codewars Stats</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <div id="app" class="container py-3">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex">
+                    <div>
+                        <img src="https://avatars.githubusercontent.com/u/44092980?s=100" class="rounded" alt="">
+                    </div>
+                    <div class="ps-3">
+                        <img class="mb-2 w-100" :src="`https://www.codewars.com/users/${username}/badges/large`" alt="profile badge">
+                        <p class="m-0 p-0 text-secondary mt-2">Name: <span class="text">{{ name }}</span></p>
+                        <p class="m-0 p-0 text-secondary">Clan: <span class="text">{{ clanName }}</span></p>
+                        <p class="m-0 p-0 mb-4 text-secondary">Skills: <span class="text">{{ skills }}</span></p>
+
+                        <a :href="'https://www.codewars.com/users/' + username" target="_blank" class="text button-profile">
+                            <img v-for src="./assets/icons/codewars.png" class="mb-1" style="width: 20px;" alt="">
+                            <span class="ms-2">Go to profile </span>
+                            <img v-for src="./assets/icons/link.png" class="mb-1" style="width: 10px;" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-3">
+            <div class="card-body">
+                <h5 class="text mb-4">Progress</h5>
+                <p class="m-0 p-0 text text-secondary">Total Completed Kata: <span class="text">{{ totalCompleted }}</span></p>
+                <p class="m-0 p-0 text-secondary">Honor: <span class="text">{{ honor }}</span></p>
+                <p class="m-0 p-0 text-secondary">Leaderboard Position: <span class="text">{{ leaderboardPosition }}</span></p>
+
+                <div class="row language-info-container mt-3">
+                    <div v-for="(languageRank, language) in languageRanks" class="col-sm-12 col-md-6 d-flex align-items-center my-4 language-info">
+                        <img :src="'./assets/icons/' + language + '.png'" alt="">
+                        <div class="ms-3">
+                            <p class="m-0 p-0 text text-secondary">Rank: <span class="text">{{ languageRank.name }}</span></p>
+                            <p class="m-0 p-0 text text-secondary">Score: <span class="text">{{ languageRank.score }}</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-3">
+            <div class="card-body">
+                <h5 class="text mb-4">Last 5 Completed Katas</h5>
+
+                <div class="completed-kata-info my-5" v-for="kata in completedKatas">
+                    <a :href="'https://www.codewars.com/kata/' + kata.id" class="text kata-link">{{ kata.name }}</a>
+                    <p class="m-0 p-0 text text-secondary">Completed Languages:
+                    <span v-for="language in kata.completedLanguages">
+                        <img v-for :src="'./assets/icons/' + language + '.png'" class="me-2" style="width: 14px;" alt="">
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./assets/js/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="./assets/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+<script src="./assets/js/vue.global.js"></script>
+<script src="./assets/js/axios.min.js"></script>
+<script src="./assets/js/script.js"></script>
+</html>

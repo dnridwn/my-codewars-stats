@@ -1,0 +1,55 @@
+body {
+    background-color: #16171B;
+}
+
+.container {
+    max-width: 800px;
+}
+
+.card {
+    background-color: #1D1D1F;
+}
+
+.card-body {
+    padding: 40px;
+}
+
+.text {
+    color: #fff;
+}
+
+.text-secondary {
+    color: #B0B0B0
+}
+
+.language-info-container {
+    padding-left: 13px;
+}
+
+.language-info {
+    border-left: 2px solid #bb432c;
+}
+
+.completed-kata-info {
+    border-left: 2px solid #bb432c;
+    padding-left: 13px;
+}
+
+.kata-link {
+    text-decoration: none;
+}
+
+.kata-link:hover {
+    color: #bb432c;
+}
+
+.button-profile {
+    padding: 4px 8px;
+    border-radius: 4px;
+    background-color: #bb432c;
+    text-decoration: none;
+}
+
+.button-profile:hover {
+    color: #fff;
+}
